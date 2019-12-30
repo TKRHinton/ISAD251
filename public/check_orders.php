@@ -23,10 +23,38 @@ include_once 'nav_bar.php';
 
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-jumbo"><b>Home Page</b></h1>
-        <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-        <hr style="width:50px;border:5px solid red" class="w3-round">
+        <h1 class="w3-jumbo"><b>check orders</b></h1>
+
+
     </div>
+
+    <!-- Contact -->
+    <div class="w3-container" id="contact" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+        <p>Please Enter you name to see orders</p>
+        <form action="/action_page.php" target="_blank">
+            <div class="w3-section">
+                <label>Name</label>
+                <input class="w3-input w3-border" type="text" name="Name" required>
+            </div>
+            </div>
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
+        </form>
+
+
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Your orders</b></h1>
+        <hr style="width:50px;border:5px solid red" class="w3-round">
+        <p>Here are your orders </p>
+    </div>
+
+
+
+
+
+</div>
+</body>
 
 
 

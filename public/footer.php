@@ -30,3 +30,5 @@
 <div class='footer'>
     <span>The Red Sea Pub Application/ISAD251/ Plymouth University</span>
 </div>
+<!-- End page padding-->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"></div>
