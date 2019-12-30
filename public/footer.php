@@ -20,7 +20,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #24A1B5;
+        background-color: #FF0000;
         color: white;
         text-align: center;
         opacity: 0.8;
@@ -28,5 +28,5 @@
 </style>
 
 <div class='footer'>
-    <span>The Sea Of Plenty Pub Application/ISAD251/ Plymouth University</span>
+    <span>The Red Sea Pub Application/ISAD251/ Plymouth University</span>
 </div>
