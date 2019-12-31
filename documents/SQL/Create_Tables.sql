@@ -2,7 +2,7 @@
 DROP TABLE [dbo].[Order_Items]
 DROP TABLE [dbo].[Items]
 DROP TABLE [dbo].[Orderss]
-GO
+ GO
 
 
 CREATE TABLE dbo.Items
