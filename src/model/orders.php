@@ -15,7 +15,7 @@ class Orders
         $this->Table_Number = $Table_Number;
         $this->Order_Description = $Order_Description;
         $this->First_Name = $First_Name;
-        $this->Order_Date = $Order_Date;
+        $this->Order_Date = getdate();
     }
 
 

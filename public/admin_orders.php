@@ -1,5 +1,9 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/items.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
+include_once '../src/model/DbContext.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +32,52 @@ include_once 'nav_bar.php';
         <hr style="width:50px;border:5px solid red" class="w3-round">
         <p>All the customers current orders</p>
 
+    </div>
+
+    <!-- Table that displays the Items that are in the database -->
+    <div class="container">
+        <h2>All Current Orders</h2>
+        <p>All Orders that where made by customers</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Table_Number</th>
+                <th>First_Name</th>
+                <th>Order_Date</th>
+                <th>Items_ID</th>
+                <th>Quanitity</th>
+                <th>Order Description</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            $Order_Row = "";
+
+            $db = new DbContext();
+            $Orders = $db->View_All_Orders();
+
+            if($Orders)
+            {
+                foreach ($Orders as $item)
+                {
+                    $Order_Row .= "<tr>" . $item->Order_ID() . "</tr>" . "<tr>" . $item->Table_Number() . "</tr>" ."<tr>" . $item->First_Name() .
+                        "</tr>" ."<tr>" . $item->Order_Date() . "</tr>"."<tr>" . $item->Items_ID_Items() . "</tr>"."<tr>" . $item->Quantity() . "</tr>"
+                        ."<tr>" . $item->Order_Description() . "</tr>";
+                }
+            }
+            echo $Order_Row;
+
+            ?>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+
+            </tbody>
+        </table>
     </div>
 
 

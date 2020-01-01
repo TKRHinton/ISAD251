@@ -1,5 +1,8 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/DbContext.php';
+include_once '../src/model/items.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +11,7 @@ include_once 'nav_bar.php';
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="Stylesheet" href="../assests/css/buttons.css">
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
     body {font-size:16px;}
@@ -18,7 +22,7 @@ include_once 'nav_bar.php';
 
 <body>
 
-<!-- !PAGE CONTENT! -->
+<!-- PAGE CONTENT -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
     <!-- Header -->
@@ -29,6 +33,60 @@ include_once 'nav_bar.php';
         <p>Check items here </p>
 
     </div>
+
+
+    <!-- Table that displays the Items that are in the database -->
+    <div class="w3-container">
+        <h2>Items In stock</h2>
+        <p>Item Information, To edit used the buttons below or use the navagation bar</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            $Item_Row = "";
+
+            $db = new DbContext();
+            $items = $db->View_items();
+
+            if($items)
+            {
+                foreach ($items as $item)
+                {
+                    $Item_Row .= "<tr>" . $item->Item_ID() . "</tr>" . "<tr>" . $item->Item_Name() . "</tr>" ."<tr>" . $item->Item_Description() . "</tr>" ."<tr>" . $item->Price() . "</tr>";
+                }
+            }
+            echo $Item_Row;
+
+            ?>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <form action="Admin_Add.php">
+            <button class="button button1">Add Item</button>
+        </form>
+        <form action="Admin_Edit.php">
+            <button class="button button2">Edit Item</button>
+        </form>
+        <form action="Admin_Delete.php">
+            <button class="button button3">Delete Item</button>
+        </form>
+
+    </div>
+
+
 
 
 

@@ -36,8 +36,13 @@ date_default_timezone_set('Europe/London');
         <a href="home.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
         <a href="order.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Order</a>
         <a href="check_orders.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Check Orders</a>
+        <a href="Add_Orders.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Add To Order</a>
+        <a href="Cancel_Orders.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cancel Order</a>
         <a href="admin_orders.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Customer Orders</a>
         <a href="admin_stock.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Drinks/Snacks</a>
+        <a href="admin_Add.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Add Item</a>
+        <a href="admin_Edit.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Edit Item</a>
+        <a href="admin_Delete.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Delete Item</a>
     </div>
 </nav>
 
