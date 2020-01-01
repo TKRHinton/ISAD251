@@ -3,7 +3,6 @@ include_once 'items.php';
 include_once 'orders.php';
 include_once 'order_items.php';
 
-
 class DbContext
 {
     private $db_server = 'https://proj-mysql.uopnet.plymouth.ac.uk';
@@ -26,13 +25,11 @@ class DbContext
                     PDO::ERRMODE_EXCEPTION
                 );
             }
-
         }
         catch (PDOException $err)
         {
             echo 'Connection failed: ', $err->getMessage();
         }
-
     }
 
     public function View_items()
@@ -47,16 +44,13 @@ class DbContext
 
         if($resultSet)
         {
-
             foreach ($resultSet as $row)
             {
                 $View_Item = new View_Items($row['Item_ID'],$row['Item_Name'],$row['Item_Description'],$row['Price']);
                 $View_Items[] = $View_Item;
             }
-
         }
         return $View_Items;
-
     }
 
     public function View_All_Orders()
@@ -78,14 +72,97 @@ class DbContext
             }
         }
         return $View_All_Orders;
-
-
     }
 
-    public function Customer_items()
+    public function Customers_Order($request)
     {
+        $sql = "CALL View_Customer_Orders(:Order_ID)";
+        $statement = $this->connection->prepare($sql);
 
+        $statement->bindParam(':Order_ID', $request->Order_ID(), PDO::PARAM_INT);
 
+        $return = $statement->execute();
+        return $return;
+    }
+
+    public function Customers_Make_Order($request)
+    {
+        $sql = "CALL Make_Order(:Order_ID, :Table_Number, :First_Name, :Quantity, :Order_Description, :Item) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Order_ID', $request->Order_ID(), PDO::PARAM_INT);
+        $statement->bindParam(':Table_Number', $request->Table_Number(), PDO::PARAM_INT);
+        $statement->bindParam(':Order_Description', $request->Order_Description(), PDO::PARAM_STR);
+        $statement->bindParam(':First_Name', $request->First_Name(), PDO::PARAM_STR);
+
+        $statement->bindParam(':Order_ID', $request->Order_ID_Items(), PDO::PARAM_INT);
+        $statement->bindParam(':Item', $request->Items_ID_Items(), PDO::PARAM_INT);
+        $statement->bindParam(':Quantity', $request->Quantity(), PDO::PARAM_INT);
+
+        $return = $statement->execute();
+        return $return;
+    }
+
+    public function Customers_Add($request)
+    {
+        $sql = "CALL Add_Order(:Order_ID, :Item, :Quantity) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Order_ID', $request->Order_ID_Items(), PDO::PARAM_INT);
+        $statement->bindParam(':Item', $request->Items_ID_Items(), PDO::PARAM_INT);
+        $statement->bindParam(':Quantity', $request->Quantity(), PDO::PARAM_INT);
+
+        $return = $statement->execute();
+        return $return;
+    }
+
+    public function Customers_Delete($request)
+    {
+        $sql = "CALL Delete_Order(:Order_ID) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Order_ID', $request->Order_ID(), PDO::PARAM_INT);
+
+        $return = $statement->execute();
+        return $return;
+    }
+
+    public function Admin_Add($request)
+    {
+        $sql = "CALL Add_Item(:Item, :ItemName, :ItemDescription, :Price) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Item', $request->Item_ID(), PDO::PARAM_INT);
+        $statement->bindParam(':ItemName', $request->Item_Name(), PDO::PARAM_STR);
+        $statement->bindParam(':ItemDescription', $request->Item_Description(), PDO::PARAM_STR);
+        $statement->bindParam(':Price', $request->Price(), PDO::PARAM_STR);
+
+        $return = $statement->execute();
+        return $return;
+    }
+
+    public function Admin_Edit($request)
+    {
+        $sql = "CALL Edit_Item(:Item, :ItemName, :ItemDescription, :Price) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Item', $request->Item_ID(), PDO::PARAM_INT);
+        $statement->bindParam(':ItemName', $request->Item_Name(), PDO::PARAM_STR);
+        $statement->bindParam(':ItemDescription', $request->Item_Description(), PDO::PARAM_STR);
+        $statement->bindParam(':Price', $request->Price(), PDO::PARAM_STR);
+
+        $return = $statement->execute();
+        return $return;
+    }
+    public function Admin_Delete($request)
+    {
+        $sql = "CALL View_Customer_Orders(:ItemID) ";
+        $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':ItemID', $request->Item_ID(), PDO::PARAM_INT);
+
+        $return = $statement->execute();
+        return $return;
     }
 
 
