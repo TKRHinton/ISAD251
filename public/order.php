@@ -1,5 +1,8 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
+include_once '../src/model/DbContext.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +37,7 @@ include_once 'nav_bar.php';
         <p>We are l</p>
     </div>
 
-
+    <!-- Form For The User to order Their Item -->
     <form>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -62,14 +65,6 @@ include_once 'nav_bar.php';
             <div class="form-group col-md-6">
                 <label for="inputCity">Order Description</label>
                 <input type="text" class="form-control" id="Order_Description" placeholder="Anything we like to know?">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
             </div>
         </div>
         <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Make Order</button>
