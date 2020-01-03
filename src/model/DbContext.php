@@ -18,7 +18,7 @@ class DbContext
         $this->connection = $connection;
         try{
             if ($this->connection == null) {
-                $this->dataSourceName = 'mysql:dbname' . $this->dbDatabase. ';host=' . $this->db_server;
+                $this->dataSourceName = 'mysql:db' . $this->dbDatabase. ';host=' . $this->db_server;
                 $this->connection = new PDO($this->dataSourceName, $this->dbUser, $this->dbPassword);
                 $this->connection->setAttribute(
                     PDO::ATTR_ERRMODE,

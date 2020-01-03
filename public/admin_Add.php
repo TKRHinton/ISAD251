@@ -1,7 +1,19 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
+
+if(!isset($db)) {
+    $db = new DbContext();
+}
+
+if(isset($_POST['Admin_Add']))
+{
+    $request = new request($_POST['Item_ID'],$_POST['Item_Name'],$_POST['Item_Description'],$_POST['Price']);
+    $success = $db->Admin_Add($request);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,31 +38,49 @@ include_once '../src/model/items.php';
 
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-jumbo"><b>check orders</b></h1>
+        <h1 class="w3-jumbo"><b>Admin Add Item</b></h1>
 
 
     </div>
-
-    <!-- Contact -->
-    <div class="w3-container" id="contact" style="margin-top:75px">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
-        <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Please Enter you name to see orders</p>
-        <form action="/action_page.php" target="_blank">
-            <div class="w3-section">
-                <label>Name</label>
-                <input class="w3-input w3-border" type="text" name="Name" required>
-            </div>
-    </div>
-    <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
-    </form>
-
 
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Your orders</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Add Item</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Here are your orders </p>
+        <p>Enter the details of the item you want to add down below </p>
     </div>
+
+    <!-- Form For The User to order Their Item -->
+    <form>
+        <div class="form-row" >
+            <div class="form-group col-md-6">
+                <label for="First_Name">Item ID</label>
+                <input name = "Item_ID" type="number" class="form-control" id="First_Name" placeholder="Item ID">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Table_Number">Item Name</label>
+                <input name = "Item_Name" type="text" class="form-control" id="Table_Number" placeholder="Item Name">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Item Description</label>
+                <input name = "Item_Description" type="text" class="form-control" id="Order_Description" placeholder="Description Of the Product">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Price</label>
+                <input name = "Price" type="number" class="form-control" id="How Many">
+            </div>
+        </div>
+        <button name = "Admin_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>
+    </form>
+    <?php
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+                    <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
+    if ($success > 0) {
+        echo $resultString;
+        alert($request);
+    }
+    ?>
 
 
 

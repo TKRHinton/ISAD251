@@ -1,7 +1,19 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
+
+if(!isset($db)) {
+    $db = new DbContext();
+}
+
+if(isset($_POST['Admin_Delete']))
+{
+    $request = new request($_POST['Item_ID']);
+    $success = $db->Admin_Delete($request);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,31 +38,53 @@ include_once '../src/model/items.php';
 
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-jumbo"><b>check orders</b></h1>
+        <h1 class="w3-jumbo"><b>Delete Item</b></h1>
 
 
     </div>
 
-    <!-- Contact -->
+    <!-- Form to Delete Items -->
     <div class="w3-container" id="contact" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
         <p>Please Enter you name to see orders</p>
-        <form action="/action_page.php" target="_blank">
+        <form>
             <div class="w3-section">
-                <label>Name</label>
-                <input class="w3-input w3-border" type="text" name="Name" required>
+                <label for="inputState">Item</label>
+                <select id="Item" class="form-control" name = "Item_ID">
+                    <option selected>Choose...</option>
+
+                    <?php
+                    $Item_Row = "";
+
+                    $db = new DbContext();
+                    $Item = $db->View_items();
+
+                    if($Item)
+                    {
+                        foreach ($Item as $item)
+                        {
+                            $optionString .= "<option value=" .$item->Item_ID().">". "</option>";
+                        }
+                    }
+                    echo $Item_Row;
+
+                    ?>
+                    <option>...</option>
+                </select>
             </div>
+
     </div>
-    <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
+    <button name = "Admin_Delete" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
     </form>
-
-
-    <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Your orders</b></h1>
-        <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Here are your orders </p>
-    </div>
+    <?php
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+                    <div class=\"card-header bg-success text-white\"> Your Item has been deleted</div></div></div></div>";
+    if ($success > 0) {
+        echo $resultString;
+        alert($request);
+    }
+    ?>
 
 
 

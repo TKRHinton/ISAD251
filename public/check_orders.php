@@ -1,7 +1,19 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
+
+if(!isset($db)) {
+    $db = new DbContext();
+}
+
+if(isset($_POST['Customers_Order']))
+{
+    $request = new request($_POST['Order_ID']);
+    $success = $db->Customers_Order($request);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
