@@ -35,7 +35,7 @@ include_once '../src/model/DbContext.php';
     </div>
 
     <!-- Table that displays the Items that are in the database -->
-    <div class="container">
+    <div class="w3-container">
         <h2>All Current Orders</h2>
         <p>All Orders that where made by customers</p>
         <table class="table table-hover">

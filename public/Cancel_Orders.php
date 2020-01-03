@@ -1,7 +1,20 @@
 <?php
 include_once 'nav_bar.php';
+include_once '../src/model/orders.php';
+include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
+
+if(!isset($db)) {
+    $db = new DbContext();
+}
+
+if(isset($_POST['Customers_Delete']))
+{
+    $request = new request($_POST['Order_ID']);
+    $success = $db->Customers_Delete($request);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,21 +49,24 @@ include_once '../src/model/items.php';
         <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
         <p>Please Enter you name to see orders</p>
-        <form action="/action_page.php" target="_blank">
+        <form>
             <div class="w3-section">
-                <label>Name</label>
-                <input class="w3-input w3-border" type="text" name="Name" required>
+                <label>Order ID</label>
+                <input class="w3-input w3-border" type="number" name="Order_ID" required>
             </div>
     </div>
-    <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
+    <button name = "Customers_Delete" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
     </form>
+    <?php
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+                    <div class=\"card-header bg-success text-white\"> Your Order has been deleted</div></div></div></div>";
+    if ($success > 0) {
+        echo $resultString;
+        alert($request);
+    }
+    ?>
 
 
-    <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Your orders</b></h1>
-        <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Here are your orders </p>
-    </div>
 
 
 
