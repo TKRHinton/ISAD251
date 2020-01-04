@@ -5,7 +5,7 @@ include_once 'order_items.php';
 
 class DbContext
 {
-    private $db_server = 'https://proj-mysql.uopnet.plymouth.ac.uk';
+    private $db_server = 'proj-mysql.uopnet.plymouth.ac.uk';
     private $dbUser = 'ISAD251_THinton';
     private $dbPassword = 'ISAD251_22214614';
     private  $dbDatabase = 'ISAD251_THinton';
@@ -18,7 +18,7 @@ class DbContext
         $this->connection = $connection;
         try{
             if ($this->connection == null) {
-                $this->dataSourceName = 'mysql:db' . $this->dbDatabase. ';host=' . $this->db_server;
+                $this->dataSourceName = 'mysql:dbname' . $this->dbDatabase. ';host=' . $this->db_server;
                 $this->connection = new PDO($this->dataSourceName, $this->dbUser, $this->dbPassword);
                 $this->connection->setAttribute(
                     PDO::ATTR_ERRMODE,
