@@ -5,11 +5,11 @@ include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
 
-if(!isset($db)) {
+if(!isset($db)) {//checks if database was already connected or not
     $db = new DbContext();
 }
 
-if(isset($_POST['Customers_Make_Order']))
+if(isset($_POST['Customers_Make_Order']))//sends data to database
 {
     $request = new request($_POST['Order_ID'], $_POST['Table_Number'], $_POST['First_Name'], $_POST['Quantity'], $_POST['Order_Description'], $_POST['Item']);
     $success = $db->Customers_Make_Order($request);
@@ -67,7 +67,7 @@ if(isset($_POST['Customers_Make_Order']))
                 <select id="Item" class="form-control" name = "Item">
                     <option selected>Choose...</option>
 
-                    <?php
+                    <?php//Drop Down Box Of the Items Available
                     $Item_Row = "";
 
                     $db = new DbContext();
@@ -100,7 +100,7 @@ if(isset($_POST['Customers_Make_Order']))
         </div>
         <button name = "Customers_Make_Order" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Make Order</button>
     </form>
-    <?php
+    <?php//tells the user that there order has been successful
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
     if ($success > 0) {

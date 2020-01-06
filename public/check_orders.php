@@ -51,10 +51,10 @@ if(isset($_POST['Customers_Order']))
         <form action="/action_page.php" target="_blank">
             <div class="w3-section">
                 <label>Order ID</label>
-                <input class="w3-input w3-border" type="text" name="Name" required>
+                <input class="w3-input w3-border" type="text" name="OrderID" required>
             </div>
             </div>
-            <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
+            <button name = "CheckOrder" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
         </form>
 
 
