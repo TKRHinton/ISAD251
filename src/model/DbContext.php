@@ -8,7 +8,7 @@ class DbContext
     private $db_server = 'proj-mysql.uopnet.plymouth.ac.uk';
     private $dbUser = 'ISAD251_THinton';
     private $dbPassword = 'ISAD251_22214614';
-    private  $dbDatabase = 'ISAD251_THinton';
+    private  $dbDatabase = 'ISAD251_thinton';
 
     private $dataSourceName;
     private $connection;
@@ -18,7 +18,7 @@ class DbContext
         $this->connection = $connection;
         try{
             if ($this->connection == null) {
-                $this->dataSourceName = 'mysql:dbname' . $this->dbDatabase. ';host=' . $this->db_server;
+                $this->dataSourceName = 'mysql:dbname=' . $this->dbDatabase. ';host=' . $this->db_server;
                 $this->connection = new PDO($this->dataSourceName, $this->dbUser, $this->dbPassword);
                 $this->connection->setAttribute(
                     PDO::ATTR_ERRMODE,
@@ -34,7 +34,7 @@ class DbContext
 
     public function View_items()
     {
-        $sql = "SELECT * FROM `[ISAD251_THinton].[dbo].[Items]`";
+        $sql = "SELECT * FROM `items`";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();
@@ -46,7 +46,7 @@ class DbContext
         {
             foreach ($resultSet as $row)
             {
-                $View_Item = new View_Items($row['Item_ID'],$row['Item_Name'],$row['Item_Description'],$row['Price']);
+                $View_Item = new item($row['Item_ID'],$row['Item_Name'],$row['Item_Description'],$row['Price']);
                 $View_Items[] = $View_Item;
             }
         }
@@ -55,7 +55,7 @@ class DbContext
 
     public function View_All_Orders()
     {
-        $sql = "SELECT * FROM [ISAD251_THinton].[dbo].[All_Orders]";
+        $sql = "SELECT * FROM `all_orders`";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();
@@ -67,7 +67,7 @@ class DbContext
         {
             foreach ($resultSet as $row)
             {
-                $View_Order = new View_All_Orders($row['Order_ID'],$row['First_Name'],$row['Order_Date'],$row['Items_ID_Items'],$row['Quantity'],$row['Order_Description']);
+                $View_Order = new order_items($row['Order_ID'],$row['First_Name'],$row['Order_Date'],$row['Items_ID_Items'],$row['Quantity'],$row['Order_Description']);
                 $View_All_Orders[] = $View_Order;
             }
         }

@@ -190,3 +190,67 @@ BEGIN
 
 END;
 GO
+
+DELIMITER //
+CREATE PROCEDURE `Make_Order` (IN `OrderID` int,  IN `Table_Number`int , IN `First_Name` VARCHAR(20), In `Quantity` int, In `Order_Description` VARCHAR(80), In `items` int)
+Begin
+            INSERT INTO `Orderss` (`Order_ID`, `Table_Number`, `Order_Description`, `First_Name`, `Order_Date`)
+            VALUES (`OrderID`, `Table_Number`, `Order_Description`, `First_Name`, CURRENT_DATE());
+
+            INSERT INTO `Order_Items` (`Order_ID_Items`, `Items_ID_Items`, `Quantity`)
+            VALUES(`OrderID`, `Item`, `Quantity`);
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE `Add_Order` (IN `OrderID` int, In `Quantity` int, In `items` int)
+Begin
+
+            INSERT INTO `Order_Items` (`Order_ID_Items`, `Items_ID_Items`, `Quantity`)
+            VALUES(`OrderID`, `Item`, `Quantity`);
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE `Delete_Order` (IN `OrderID` int)
+Begin
+			DELETE FROM `Orderss`
+            WHERE `Order_ID` = `OrderID`;
+
+            DELETE FROM `Order_Items`
+            WHERE `Order_ID_Items` = `OrderID`;
+
+END //
+DELIMITER ;
+DELIMITER //
+CREATE PROCEDURE `Add_Item` (IN `ItemID` int , IN `ItemName` VARCHAR(20), In `ItemDescription` VARCHAR(80), In `Price` float)
+Begin
+            INSERT INTO `Items` (`Item_ID`, `Item_Name`, `Item_Description`, `Price`, `Order_Date`)
+            VALUES (`ItemID`, `ItemName`, `ItemDescription`,`Price`);
+
+END //
+DELIMITER ;
+DELIMITER //
+CREATE PROCEDURE `Edit_Item` (IN `ItemID` int , IN `ItemName` VARCHAR(20), In `ItemDescription` VARCHAR(80), In `ItemPrice` float)
+Begin
+			UPDATE `items`
+            SET `Item_ID` = `ItemID`, `Item_Name` = `ItemName`,`Item_Description` = `ItemDescription`,`Price` = `ItemPrice`
+            WHERE `ItemID` = `Item_ID`;
+
+END //
+DELIMITER ;
+DELIMITER //
+CREATE PROCEDURE `Delete_Item` (IN `ItemID` int)
+Begin
+			DELETE FROM `Items`
+            WHERE `Item_ID` = `ItemID`;
+
+END //
+DELIMITER ;
+
+use isad251_thinton;
+CREATE VIEW `All_Orders` AS
+
+    SELECT `Order_ID`, `Table_Number`, `First_Name`, `Order_Date`, `Items_ID_Items`, `Quantity`, `Order_Description`
+    FROM `Order_Items`, `Orderss`
+    WHERE `Order_ID` = `Order_ID_Items`;
