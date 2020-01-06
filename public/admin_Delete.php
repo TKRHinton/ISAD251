@@ -64,7 +64,7 @@ if(isset($_POST['Admin_Delete']))
                     {
                         foreach ($Item as $item)
                         {
-                            $optionString .= "<option value=" .$item->Item_ID().">". "</option>";
+                            $Item_Row .= "<option value=" .$item->Item_ID().">". "</option>";
                         }
                     }
                     echo $Item_Row;
@@ -80,11 +80,11 @@ if(isset($_POST['Admin_Delete']))
     <?php
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Item has been deleted</div></div></div></div>";
-    if ($success > 0) {
+   // if ($success > 0) {
         echo $resultString;
-        alert($request);
-    }
-    ?>
+   //     alert($request);
+   // }
+    //?>
 
 
 

@@ -31,7 +31,7 @@ if(isset($_POST['Admin_Edit']))
 
             <!-- Header -->
             <div class="w3-container" style="margin-top:80px" id="showcase">
-                <h1 class="w3-jumbo"><b>Admin Add Item</b></h1>
+                <h1 class="w3-jumbo"><b>Admin Edit Item</b></h1>
 
 
             </div>
@@ -69,10 +69,10 @@ if(isset($_POST['Admin_Edit']))
             <?php
             $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
-            if ($success > 0) {
+           //if ($success > 0) {
                 echo $resultString;
-                alert($request);
-            }
+          //      alert($request);
+          //  }
             ?>
 
 

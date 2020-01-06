@@ -60,20 +60,17 @@ include_once '../src/model/items.php';
             {
                 foreach ($items as $item)
                 {
-                    $Item_Row .= "<tr>" . $item->Item_ID() . "</tr>" . "<tr>" . $item->Item_Name() . "</tr>" ."<tr>" . $item->Item_Description() . "</tr>" ."<tr>" . $item->Price() . "</tr>";
+                    $Item_Row .= "<tr><td>" . $item->Item_ID() . "</td>" . "<td>" . $item->Item_Name() . "</td>" ."<td>" . $item->Item_Description() . "</td>" ."<td>" . $item->Price() . "</td></tr>";
                 }
             }
             echo $Item_Row;
 
             ?>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
+
 
             </tbody>
         </table>
+        <div class="w3-container" style="margin-top:80px" id="showcase">
         <form action="Admin_Add.php">
             <button class="button button1">Add Item</button>
         </form>
@@ -83,6 +80,7 @@ include_once '../src/model/items.php';
         <form action="Admin_Delete.php">
             <button class="button button3">Delete Item</button>
         </form>
+        </div>
 
     </div>
 

@@ -7,7 +7,7 @@ class items
     private $Item_Description;
     private $Price;
 
-    private function __construct($Item_ID,$Item_Name,$Item_Description,$Price)
+    public function __construct($Item_ID,$Item_Name,$Item_Description,$Price)
     {
         $this->Item_ID = $Item_ID;
         $this->Item_Name = $Item_Name;

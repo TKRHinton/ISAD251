@@ -4,6 +4,7 @@ include_once '../src/model/items.php';
 include_once '../src/model/orders.php';
 include_once '../src/model/order_items.php';
 include_once '../src/model/DbContext.php';
+include_once '../src/model/AllOrders.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,19 +64,14 @@ include_once '../src/model/DbContext.php';
             {
                 foreach ($Orders as $item)
                 {
-                    $Order_Row .= "<tr>" . $item->Order_ID() . "</tr>" . "<tr>" . $item->Table_Number() . "</tr>" ."<tr>" . $item->First_Name() .
-                        "</tr>" ."<tr>" . $item->Order_Date() . "</tr>"."<tr>" . $item->Items_ID_Items() . "</tr>"."<tr>" . $item->Quantity() . "</tr>"
-                        ."<tr>" . $item->Order_Description() . "</tr>";
+                    $Order_Row .= "<tr><td>" . $item->Order_ID() . "</td>" . "<td>" . $item->Table_Number() . "</td>" ."<td>" . $item->First_Name() .
+                        "</td>" ."<td>" . $item->Order_Date() . "</td>"."<td>" . $item->Items_ID_Items() . "</td>"."<td>" . $item->Quantity() . "</td>"
+                        ."<td>" . $item->Order_Description() . "</td></tr>";
                 }
             }
             echo $Order_Row;
 
             ?>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
 
             </tbody>
         </table>

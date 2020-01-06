@@ -9,7 +9,7 @@ class Orders
     private $Order_Date;
 
 
-    public function __construct($Order_ID,$Table_Number,$Order_Description,$First_Name,$Order_Date)
+    public function __construct($Order_ID,$Table_Number,$Order_Description,$First_Name)
     {
         $this->Order_ID = $Order_ID;
         $this->Table_Number = $Table_Number;

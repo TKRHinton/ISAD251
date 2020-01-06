@@ -75,9 +75,9 @@ if(isset($_POST['Customers_Make_Order']))
 
                     if($View_Items)
                     {
-                        foreach ($View_Items as $item)
+                        foreach ($View_Items as $items)
                         {
-                            $optionString .= "<option value=" .$item->Item_ID().">". "</option>";
+                            $Item_Row .= "<option value=>" .$items->Item_ID(). "</option>";
                         }
                     }
                     echo $Item_Row;
@@ -103,10 +103,10 @@ if(isset($_POST['Customers_Make_Order']))
     <?php
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
-    if ($success > 0) {
+   // if ($success > 0) {
         echo $resultString;
-        alert($request);
-    }
+        //alert($request);
+  //  }
     ?>
 
 

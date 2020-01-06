@@ -2,6 +2,7 @@
 include_once 'items.php';
 include_once 'orders.php';
 include_once 'order_items.php';
+include_once 'AllOrders.php';
 
 class DbContext
 {
@@ -46,7 +47,7 @@ class DbContext
         {
             foreach ($resultSet as $row)
             {
-                $View_Item = new item($row['Item_ID'],$row['Item_Name'],$row['Item_Description'],$row['Price']);
+                $View_Item = new items($row['Item_ID'],$row['Item_Name'],$row['Item_Description'],$row['Price']);
                 $View_Items[] = $View_Item;
             }
         }
@@ -67,7 +68,7 @@ class DbContext
         {
             foreach ($resultSet as $row)
             {
-                $View_Order = new order_items($row['Order_ID'],$row['First_Name'],$row['Order_Date'],$row['Items_ID_Items'],$row['Quantity'],$row['Order_Description']);
+                $View_Order = new AllOrders($row['Order_ID'],$row['Table_Number'],$row['First_Name'],$row['Order_Date'],$row['Items_ID_Items'],$row['Quantity'],$row['Order_Description']);
                 $View_All_Orders[] = $View_Order;
             }
         }
