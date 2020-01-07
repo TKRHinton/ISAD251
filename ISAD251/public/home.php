@@ -1,6 +1,7 @@
 <?php
 include_once 'nav_bar.php';
 ?>
+    <!-- Home Page -->
     <!DOCTYPE html>
     <html lang="en-GB">
     <head>

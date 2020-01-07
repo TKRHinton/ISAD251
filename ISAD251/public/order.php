@@ -136,7 +136,7 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
 
 
 
-    <!-- Shows the Use a menu -->
+    <!-- Shows  the Use a menu -->
     <div class="w3-container">
         <h2></h2>
         <h2>Item Menu</h2>
