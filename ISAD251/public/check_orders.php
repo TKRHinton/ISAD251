@@ -57,7 +57,7 @@ if(isset($_POST['Order_ID']))
         <form <?php echo $_SERVER['PHP_SELF']; ?>>
             <div class="w3-section">
                 <label>Order ID</label>
-                <input class="w3-input w3-border" type="text" name="OrderID">
+                <input class="w3-input w3-border" type="text" name="Order_ID">
             </div>
 
             <button name = "CheckOrder" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>

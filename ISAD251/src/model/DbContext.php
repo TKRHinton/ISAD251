@@ -37,7 +37,8 @@ class DbContext
 
     public function Customers_Order($request)
     {
-        $sql = "SELECT * FROM `all_orders` WHERE `Order_ID` = :request,";
+       // $sql = "SELECT * FROM `all_orders` WHERE `Order_ID` = :request,";
+        $sql = "SELECT * FROM `all_orders`,";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -102,13 +103,13 @@ class DbContext
 
     public function Customers_Make_Order($request)
     {
-        $sql = "CALL Make_Order(:Order_ID, :Table_Number, :First_Name, :Quantity, :Order_Description, :Item :Order_Date) ";
+        $sql = "CALL Make_Order(:Order_ID, :Table_Number, :First_Name, :Order_Description, :Order_Date, :Item, :Quantity) ";
         $statement = $this->connection->prepare($sql);
 
         $statement->bindParam(':Order_ID', $request->Order_ID(), PDO::PARAM_STR);
         $statement->bindParam(':Table_Number', $request->Table_Number(), PDO::PARAM_INT);
-        $statement->bindParam(':Order_Description', $request->Order_Description(), PDO::PARAM_STR);
         $statement->bindParam(':First_Name', $request->First_Name(), PDO::PARAM_STR);
+        $statement->bindParam(':Order_Description', $request->Order_Description(), PDO::PARAM_STR);
         $statement->bindParam(':Order_Date', $request->Order_Date(), PDO::PARAM_STR);
 
 

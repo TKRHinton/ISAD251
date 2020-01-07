@@ -11,7 +11,7 @@ if(!isset($db)) {
 
 if(isset($_POST['Customers_Make_Order']))
 {
-    $request = new AllOrders($_POST['Order_ID'], $_POST['Table_Number'], $_POST['First_Name'], $_POST['Quantity'], $_POST['Order_Description'], $_POST['Item'],$_POST['OrderDate'] );
+    $request = new AllOrders($_POST['Order_ID'], $_POST['Table_Number'], $_POST['First_Name'], $_POST['Order_Description'], $_POST['Order_Date'],$_POST['Item'],$_POST['Quantity'] );
     $success = $db->Customers_Make_Order($request);
 }
 ?>
@@ -60,7 +60,7 @@ if(isset($_POST['Customers_Make_Order']))
             </div>
             <div class="form-group col-md-6">
                 <label id = "Order_Date" for="Table_Number">Date</label>
-                <input name = "Order_Date" type="datetime-local" class="form-control" id="Order_Date"  >
+                <input name = "Order_Date" type="datetime" class="form-control" id="Order_Date"  >
             </div>
         </div>
         <div class="form-row" >
@@ -74,7 +74,7 @@ if(isset($_POST['Customers_Make_Order']))
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <!--     <div class="form-group col-md-4">
                 <label for="inputState">Item</label>
                 <select id="Item" class="form-control" name = "Item">
                     <option selected>Choose...</option>
@@ -99,10 +99,15 @@ if(isset($_POST['Customers_Make_Order']))
 
                     <option>...</option>
                 </select>
-            </div>
+            </div> -->
             <div class="form-group col-md-2">
-                <label for="inputZip">Quantity</label>
-                <input name = "Quantity" type="number" class="form-control" id="How Many">
+                <label for="Item">Item</label>
+                <input name = "Item" type="number" class="form-control" id="Item">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="Quantity">Quantity</label>
+                <input name = "Quantity" type="number" class="form-control" id="Quantity">
             </div>
 
             <div class="form-group col-md-6">

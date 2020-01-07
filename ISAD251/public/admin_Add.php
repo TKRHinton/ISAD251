@@ -1,5 +1,5 @@
 <?php
-//include_once 'nav_bar.php';
+include_once 'nav_bar.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
 

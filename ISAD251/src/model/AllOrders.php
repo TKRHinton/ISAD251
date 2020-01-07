@@ -7,10 +7,10 @@ class AllOrders
     private $Quantity;
     private $Order_Description;
     private $Order_Date;
-    private $Items_ID;
+    private $Items_ID_Items;
 
 
-public function __construct($Order_ID,$Table_Number,$First_Name,$Items_ID_Items,$Quantity,$Order_Description, $Order_Date)
+public function __construct($Order_ID,$Table_Number,$First_Name,$Order_Description,$Order_Date,$Items_ID_Items,$Quantity)
 {
     $this->Order_ID = $Order_ID;
     $this->Table_Number = $Table_Number;

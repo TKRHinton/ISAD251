@@ -11,7 +11,7 @@ if(!isset($db)) {
 
 if(isset($_POST['Customers_Add']))
 {
-    $request = new order_items($_POST['Order_ID'], $_POST['Quantity'], $_POST['Items_ID_Items']);
+    $request = new order_items($_POST['Order_ID'],$_POST['Items_ID_Items'], $_POST['Quantity'] );
     $success = $db->Customers_Add($request);
 }
 

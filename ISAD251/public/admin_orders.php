@@ -46,10 +46,12 @@ include_once '../src/model/AllOrders.php';
                 <th>Order ID</th>
                 <th>Table_Number</th>
                 <th>First_Name</th>
-                <th>Order_Date</th>
+
                 <th>Items_ID</th>
                 <th>Quanitity</th>
                 <th>Order Description</th>
+                <th>Order_Date</th>
+
             </tr>
             </thead>
             <tbody>
