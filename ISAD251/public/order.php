@@ -24,6 +24,7 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="Stylesheet" href="../assests/css/buttons.css">
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
     body {font-size:16px;}
@@ -55,11 +56,11 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
         <div class="form-row" >
             <div class="form-group col-md-6">
                 <label for="Order_ID">ID Number</label>
-                <input name = "Order_ID" type="text" class="form-control" id="Order_ID" maxlength="10" >
+                <input name = "Order_ID" type="text" class="form-control" id="Order_ID" maxlength="10" placeholder="Order ID">
             </div>
             <div class="form-group col-md-6">
                 <label id = "Order_Date" for="Table_Number">Date</label>
-                <input name = "Order_Date" type="datetime" class="form-control" id="Order_Date"  >
+                <input name = "Order_Date" type="date" class="form-control" id="Order_Date"  >
             </div>
         </div>
         <div class="form-row" >
@@ -101,12 +102,12 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
             </div> -->
             <div class="form-group col-md-2">
                 <label for="Item">Item</label>
-                <input name = "Item" type="number" class="form-control" id="Item" maxlength="10">
+                <input name = "Item" type="number" class="form-control" id="Item" maxlength="10" placeholder="Item ID">
             </div>
 
             <div class="form-group col-md-2">
                 <label for="Quantity">Quantity</label>
-                <input name = "Quantity" type="number" class="form-control" id="Quantity" maxlength="2">
+                <input name = "Quantity" type="number" class="form-control" id="Quantity" maxlength="2" placeholder="How Much?">
             </div>
 
             <div class="form-group col-md-6">
@@ -116,6 +117,58 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
         </div>
         <button name = "Customers_Make_Order" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Make Order</button>
     </form>
+
+    <div class="w3-container" style="margin-top:80px" id="buttons">
+
+            <button class="button button1" onclick="window.location.href = 'Admin_Add.php'">Add Order</button>
+
+
+            <button class="button button2" onclick="window.location.href = 'Admin_Edit.php'">Edit Item</button>
+
+
+            <button class="button button3" onclick="window.location.href = 'Admin_Delete.php'">Delete Item</button>
+
+    </div>
+
+
+    <!-- Shows the Use a menu -->
+    <div class="w3-container">
+        <h2></h2>
+        <h2>Item Menu</h2>
+        <p>Here is the Items and ID Numbers</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            $Item_Row = "";
+
+            $db = new DbContext();
+            $items = $db->View_items();
+
+            if($items)
+            {
+                foreach ($items as $item)
+                {
+                    $Item_Row .= "<tr><td>" . $item->Item_ID() . "</td>" . "<td>" . $item->Item_Name() . "</td>" ."<td>" . $item->Item_Description() . "</td>" ."<td>" . $item->Price() . "</td></tr>";
+                }
+            }
+            echo $Item_Row;
+
+            ?>
+
+
+            </tbody>
+        </table>
+
+    </div>
     <?php
     //Tells user if the data got pushed to database or not
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">

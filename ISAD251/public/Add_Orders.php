@@ -92,12 +92,51 @@ if(isset($_POST['Customers_Add']))
         <button name = "Customers_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add To Order</button>
         </div>
     </form>
+
+    <!-- Shows the Use a menu -->
+    <div class="w3-container">
+        <h2></h2>
+        <h2>Item Menu</h2>
+        <p>Here is the Items and ID Numbers</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php
+            $Item_Row = "";
+
+            $db = new DbContext();
+            $items = $db->View_items();
+
+            if($items)
+            {
+                foreach ($items as $item)
+                {
+                    $Item_Row .= "<tr><td>" . $item->Item_ID() . "</td>" . "<td>" . $item->Item_Name() . "</td>" ."<td>" . $item->Item_Description() . "</td>" ."<td>" . $item->Price() . "</td></tr>";
+                }
+            }
+            echo $Item_Row;
+
+            ?>
+
+
+            </tbody>
+        </table>
+
+    </div>
     <?php
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made </div></div></div></div>";
     if ($success > 0) {
         echo $resultString;
-      //  alert($request);
+
     }
     ?>
 
