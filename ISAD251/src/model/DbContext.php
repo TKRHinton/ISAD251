@@ -37,9 +37,11 @@ class DbContext
 
     public function Customers_Order($request)
     {
-       // $sql = "SELECT * FROM `all_orders` WHERE `Order_ID` = :request,";
-        $sql = "SELECT * FROM `all_orders`,";
+        $sql = "SELECT * FROM `all_orders` WHERE `Order_ID` = :request,";
+        //$sql = "SELECT * FROM `all_orders`,";
         $statement = $this->connection->prepare($sql);
+
+        $statement->bindParam(':Order_ID', $request->Order_ID(), PDO::PARAM_STR);
         $statement->execute();
         $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -180,6 +182,27 @@ class DbContext
 
         $return = $statement->execute();
         return $return;
+    }
+
+    public function getAll($tableName)
+    {
+        $sql = "SELECT * FROM ";
+        switch ($tableName)
+        {
+            case "items" : $sql = $sql." items";
+                break;
+            case "orderss" : $sql = $sql." orderss";
+                break;
+            case "order_items" : $sql = $sql." order_items";
+                break;
+        }
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+
+        $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultSet;
     }
 
 

@@ -17,7 +17,7 @@ if(isset($_POST['Customers_Order']))
 
 if(isset($_POST['Order_ID']))
 {
-    echo finduser($_POST['Order_ID']);
+    echo Finders($_POST['Order_ID']);
 
 }
 ?>
@@ -90,12 +90,11 @@ if(isset($_POST['Order_ID']))
             <tbody>
 
             <?php
-            function finduser($user)
-            {
+           // $user = Order_ID;
             $Order_Row = "";
 
             $db = new DbContext();
-           // $Orders = $db->Customers_Order($user);
+            //$Orders = $db->Customers_Order($user);
                 $Orders = $db->View_All_Orders();
 
             if($Orders)
@@ -107,10 +106,10 @@ if(isset($_POST['Order_ID']))
                         ."<td>" . $item->Order_Description() . "</td></tr>";
                 }
             }
-            echo $user;
+
             echo $Order_Row;
 
-            }
+
             ?>
 
 

@@ -39,7 +39,7 @@ if(isset($_POST['Customers_Delete']))
 
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-jumbo"><b>check orders</b></h1>
+        <h1 class="w3-jumbo"><b>Cancel orders</b></h1>
 
 
     </div>

@@ -47,11 +47,11 @@ if(isset($_POST['Admin_Delete']))
     <div class="w3-container" id="contact" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Please Enter you name to see orders</p>
+        <p>Please Enter The ID to delete Item</p>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="w3-section">
                 <label for="Item_ID">Item ID</label>
-                <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name" maxlength = "10">
+                <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item ID" maxlength = "10">
                 <!--  <label for="inputState">Item</label>
                 <select id="Item_ID" class="form-control" name = "Item_ID">
                     <option selected>Choose...</option>

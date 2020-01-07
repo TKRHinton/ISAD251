@@ -37,7 +37,7 @@ if(isset($_POST['Admin_Edit']))
             </div>
 
             <div class="w3-container" style="margin-top:80px" id="showcase">
-                <h1 class="w3-xxxlarge w3-text-red"><b>Add Item</b></h1>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Edit Item Below</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
                 <p>Enter the details of the item you want to add down below </p>
             </div>
