@@ -72,16 +72,18 @@ include_once '../src/model/items.php';
 
             </tbody>
         </table>
-        <div class="w3-container" style="margin-top:80px" id="showcase">
-        <form action="Admin_Add.php">
-            <button class="button button1">Add Item</button>
-        </form>
-        <form action="Admin_Edit.php">
-            <button class="button button2">Edit Item</button>
-        </form>
-        <form action="Admin_Delete.php">
-            <button class="button button3">Delete Item</button>
-        </form>
+
+        <!-- Button to navigate to other options for items -->
+        <div class="w3-container" style="margin-top:80px" id="buttons">
+
+            <button class="button button1" onclick="window.location.href = 'Admin_Add.php'">Add Order</button>
+
+
+            <button class="button button2" onclick="window.location.href = 'Admin_Edit.php'">Edit Item</button>
+
+
+            <button class="button button3" onclick="window.location.href = 'Admin_Delete.php'">Delete Item</button>
+
         </div>
 
     </div>

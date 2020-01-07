@@ -72,26 +72,17 @@ if(isset($_POST['Customers_Add']))
                 <input name = "Items_ID_Items" type="number" class="form-control" id="Items_ID_Items" placeholder="Your Item ID number that was assigned to you" maxlength="10">
             </div>
 
-                    <?php
-                    $Item_Row = "";
-
-                    $db = new DbContext();
-                    $View_Items = $db->View_items();
-
-                    if($View_Items)
-                    {
-                        foreach ($View_Items as $items)
-                        {
-                            $Item_Row .= "<option value=".$items->Item_ID().">" .$items->Item_Name(). "</option>";
-                        }
-                    }
-                    echo $Item_Row;
-
-                    ?>
-
         <button name = "Customers_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add To Order</button>
         </div>
     </form>
+    <?php
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+                    <div class=\"card-header bg-success text-white\"> Your Order has been made </div></div></div></div>";
+    if ($success > 0) {
+        echo $resultString;
+
+    }
+    ?>
 
     <!-- Shows the Use a menu -->
     <div class="w3-container">
@@ -131,14 +122,7 @@ if(isset($_POST['Customers_Add']))
         </table>
 
     </div>
-    <?php
-    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
-                    <div class=\"card-header bg-success text-white\"> Your Order has been made </div></div></div></div>";
-    if ($success > 0) {
-        echo $resultString;
 
-    }
-    ?>
 
 
 

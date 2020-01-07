@@ -68,7 +68,7 @@ if(isset($_POST['Admin_Add']))
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Price</label>
-                <input name = "Price" type="number" class="form-control" id="Price" min="0.00" max="10000.00">
+                <input name = "Price" type="number" class="form-control" id="Price" min="0" max="999" step=".01">
             </div>
         </div>
         <button name = "Admin_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>

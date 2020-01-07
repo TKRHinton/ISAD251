@@ -47,8 +47,8 @@ if(isset($_POST['Admin_Edit']))
             <!-- Form For The User to order Their Item -->
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div class="form-row" >
-                    <label class="form-group col-md-6">
-                        <!--      <label for="inputState">Item_ID</label>
+                    <!--   <label class="form-group col-md-6">
+                             <label for="inputState">Item_ID</label>
                         <select id="Item_ID" class="form-control" name = "Item_ID">
                             <option selected>Choose...</option>
 
@@ -90,7 +90,7 @@ if(isset($_POST['Admin_Edit']))
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Price</label>
-                        <input name = "Price" type="number" min="0" value="999" step=".01" class="form-control" id="Price">
+                        <input name = "Price" type="number" min="0" max="999" step=".01" class="form-control" id="Price">
                     </div>
                 </div>
                 <button name = "Admin_Edit" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>
@@ -100,7 +100,7 @@ if(isset($_POST['Admin_Edit']))
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
            if ($success > 0) {
                 echo $resultString;
-                //alert($request);
+
             }
             ?>
 

@@ -51,7 +51,7 @@ if(isset($_POST['Order_ID']))
 
     </div>
 
-    <!-- Asks use for Order ID -->
+    <!-- Asks use for Order ID
     <div class="w3-container" id="contact" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red"><b>Orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -64,13 +64,12 @@ if(isset($_POST['Order_ID']))
 
             <button name = "CheckOrder" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>
         </form>
-    </div>
+    </div>-->
 
 
     <div class="w3-container" style="margin-top:80px" id="showcase">
-        <h1 class="w3-xxxlarge w3-text-red"><b>Your orders</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Check Your Order Here orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>Here are your orders </p>
     </div>
 
     <!-- Table that displays the Items that are in the database -->
@@ -83,10 +82,10 @@ if(isset($_POST['Order_ID']))
                 <th>Order ID</th>
                 <th>Table_Number</th>
                 <th>First_Name</th>
-                <th>Order_Date</th>
-                <th>Items Name</th>
+                <th>Items ID</th>
                 <th>Quanitity</th>
                 <th>Order Description</th>
+                <th>Order_Date</th>
             </tr>
             </thead>
             <tbody>

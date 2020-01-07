@@ -117,18 +117,23 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
         </div>
         <button name = "Customers_Make_Order" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Make Order</button>
     </form>
+    <?php
+    //Tells user if the data got pushed to database or not
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
+                    <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
+    if ($success > 0) {
+        echo $resultString;
+    }
+    ?>
 
     <div class="w3-container" style="margin-top:80px" id="buttons">
 
-            <button class="button button1" onclick="window.location.href = 'Admin_Add.php'">Add Order</button>
+            <button class="button button1" onclick="window.location.href = 'Add_Orders.php'">Add Item</button>
 
 
-            <button class="button button2" onclick="window.location.href = 'Admin_Edit.php'">Edit Item</button>
-
-
-            <button class="button button3" onclick="window.location.href = 'Admin_Delete.php'">Delete Item</button>
 
     </div>
+
 
 
     <!-- Shows the Use a menu -->
@@ -169,14 +174,7 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
         </table>
 
     </div>
-    <?php
-    //Tells user if the data got pushed to database or not
-    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
-                    <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
-    if ($success > 0) {
-        echo $resultString;
-    }
-    ?>
+
 
 
 
