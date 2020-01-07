@@ -9,20 +9,21 @@ if(!isset($db)) {
     $db = new DbContext();
 }
 
-if(isset($_POST['Customers_Make_Order']))
+if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That takes the data and puts in database
 {
     $request = new AllOrders($_POST['Order_ID'], $_POST['Table_Number'], $_POST['First_Name'], $_POST['Order_Description'], $_POST['Order_Date'],$_POST['Item'],$_POST['Quantity'] );
     $success = $db->Customers_Make_Order($request);
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="Stylesheet" href="../assests/css/buttons.css">
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
     body {font-size:16px;}
@@ -33,8 +34,6 @@ if(isset($_POST['Customers_Make_Order']))
 
 
 <body>
-
-
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
@@ -43,7 +42,7 @@ if(isset($_POST['Customers_Make_Order']))
         <h1 class="w3-jumbo"><b>Order Page</b></h1>
     </div>
 
-    <!-- Header and description -->
+    <!-- 2nd Header and description -->
     <div class="w3-container" id="designers" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-red"><b>Please Place your order</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -56,7 +55,7 @@ if(isset($_POST['Customers_Make_Order']))
         <div class="form-row" >
             <div class="form-group col-md-6">
                 <label for="Order_ID">ID Number</label>
-                <input name = "Order_ID" type="text" class="form-control" id="Order_ID"  >
+                <input name = "Order_ID" type="text" class="form-control" id="Order_ID" maxlength="10" >
             </div>
             <div class="form-group col-md-6">
                 <label id = "Order_Date" for="Table_Number">Date</label>
@@ -70,7 +69,7 @@ if(isset($_POST['Customers_Make_Order']))
             </div>
             <div class="form-group col-md-6">
                 <label for="Table_Number">Table Number</label>
-                <input name = "Table_Number" type="number" class="form-control" id="Table_Number" placeholder="Check the Sign on your table">
+                <input name = "Table_Number" type="number" class="form-control" id="Table_Number" placeholder="Check the Sign on your table" maxlength="3">
             </div>
         </div>
         <div class="form-row">
@@ -102,12 +101,12 @@ if(isset($_POST['Customers_Make_Order']))
             </div> -->
             <div class="form-group col-md-2">
                 <label for="Item">Item</label>
-                <input name = "Item" type="number" class="form-control" id="Item">
+                <input name = "Item" type="number" class="form-control" id="Item" maxlength="10">
             </div>
 
             <div class="form-group col-md-2">
                 <label for="Quantity">Quantity</label>
-                <input name = "Quantity" type="number" class="form-control" id="Quantity">
+                <input name = "Quantity" type="number" class="form-control" id="Quantity" maxlength="2">
             </div>
 
             <div class="form-group col-md-6">
@@ -118,11 +117,11 @@ if(isset($_POST['Customers_Make_Order']))
         <button name = "Customers_Make_Order" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Make Order</button>
     </form>
     <?php
+    //Tells user if the data got pushed to database or not
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
     if ($success > 0) {
         echo $resultString;
-        //alert($request);
     }
     ?>
 

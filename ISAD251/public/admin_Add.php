@@ -14,8 +14,10 @@ if(isset($_POST['Admin_Add']))
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -52,7 +54,7 @@ if(isset($_POST['Admin_Add']))
         <div class="form-row" >
             <div class="form-group col-md-6">
                 <label for="First_Name">Item ID</label>
-                <input name = "Item_ID" type="number" class="form-control" id="First_Name" placeholder="Item ID">
+                <input name = "Item_ID" type="number" class="form-control" id="First_Name" placeholder="Item ID" maxlength="10">
             </div>
             <div class="form-group col-md-6">
                 <label for="Table_Number">Item Name</label>
@@ -66,17 +68,17 @@ if(isset($_POST['Admin_Add']))
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Price</label>
-                <input name = "Price" type="number" class="form-control" id="How Many" min="0.00" max="10000.00">
+                <input name = "Price" type="number" class="form-control" id="Price" min="0.00" max="10000.00">
             </div>
         </div>
         <button name = "Admin_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>
     </form>
     <?php
+    //Tells user if the data got pushed to database or not
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
     if ($success > 0) {
         echo $resultString;
-        //alert($request);
     }
     ?>
 

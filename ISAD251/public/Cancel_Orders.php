@@ -17,8 +17,10 @@ if(isset($_POST['Customers_Delete']))
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -52,7 +54,7 @@ if(isset($_POST['Customers_Delete']))
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="w3-section">
                 <label>Order ID</label>
-                <input class="w3-input w3-border" type="number" name="Order_ID" required>
+                <input class="w3-input w3-border" type="number" name="Order_ID" required maxlength="10">
             </div>
     </div>
     <button name = "Customers_Delete" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Confirm</button>

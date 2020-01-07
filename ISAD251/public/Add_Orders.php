@@ -18,8 +18,10 @@ if(isset($_POST['Customers_Add']))
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -61,13 +63,13 @@ if(isset($_POST['Customers_Add']))
             </div>
             <div class="form-group col-md-6">
                 <label for="Table_Number">Quantity</label>
-                <input name = "Quantity" type="number" class="form-control" id="Quantity" placeholder="How many do you want">
+                <input name = "Quantity" type="number" class="form-control" id="Quantity" placeholder="How many do you want" maxlength="2">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="Items_ID_Items">Item</label>
-                <input name = "Items_ID_Items" type="number" class="form-control" id="Items_ID_Items" placeholder="Your Item ID number that was assigned to you">
+                <input name = "Items_ID_Items" type="number" class="form-control" id="Items_ID_Items" placeholder="Your Item ID number that was assigned to you" maxlength="10">
             </div>
 
                     <?php

@@ -16,8 +16,10 @@ if(isset($_POST['Admin_Edit']))
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -88,7 +90,7 @@ if(isset($_POST['Admin_Edit']))
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Price</label>
-                        <input name = "Price" type="number" min="0" value="0" step=".01" class="form-control" id="Price">
+                        <input name = "Price" type="number" min="0" value="999" step=".01" class="form-control" id="Price">
                     </div>
                 </div>
                 <button name = "Admin_Edit" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>

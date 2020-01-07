@@ -16,8 +16,10 @@ if(isset($_POST['Admin_Delete']))
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<title>The Red Sea Bar</title>
+<html lang="en-GB">
+<head>
+    <title>The Red Sea Bar</title>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -83,7 +85,6 @@ if(isset($_POST['Admin_Delete']))
                     <div class=\"card-header bg-success text-white\"> Your Item has been deleted</div></div></div></div>";
     if ($success > 0) {
         echo $resultString;
-       //alert($request);
     };
     ?>
 
