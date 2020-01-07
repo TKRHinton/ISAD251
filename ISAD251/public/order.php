@@ -48,7 +48,6 @@ if(isset($_POST['Customers_Make_Order']))//Sends User Input to Function That tak
         <h1 class="w3-xxxlarge w3-text-red"><b>Please Place your order</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
         <p>Add the items you want to order then enter your name and send the order</p>
-        <p>We are l</p>
     </div>
 
     <!-- Form For The User to order Their Item -->

@@ -41,38 +41,13 @@ if(isset($_POST['Admin_Edit']))
             <div class="w3-container" style="margin-top:80px" id="showcase">
                 <h1 class="w3-xxxlarge w3-text-red"><b>Edit Item Below</b></h1>
                 <hr style="width:50px;border:5px solid red" class="w3-round">
-                <p>Enter the details of the item you want to add down below </p>
+                <p>Enter the details of the item you want to edit down below </p>
             </div>
 
             <!-- Form For The User to order Their Item -->
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div class="form-row" >
-                    <!--   <label class="form-group col-md-6">
-                             <label for="inputState">Item_ID</label>
-                        <select id="Item_ID" class="form-control" name = "Item_ID">
-                            <option selected>Choose...</option>
 
-                            <?php
-                            $Item_Row = "";
-
-                            $db = new DbContext();
-                            $View_Items = $db->View_items();
-
-                            if($View_Items)
-                            {
-                                foreach ($View_Items as $items)
-                                {
-                                    $Item_Row .= "<option value=".$items->Item_ID() .">" .$items->Item_Name(). "</option>";
-                                }
-                            }
-                            echo $Item_Row;
-
-                            ?>
-
-
-                            <option>...</option>
-                        </select>
-                    </label> -->
                     <div class="form-group col-md-6">
                         <label for="Item_ID">Item ID</label>
                         <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name" maxlength = "10">

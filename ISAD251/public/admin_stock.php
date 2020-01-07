@@ -76,7 +76,7 @@ include_once '../src/model/items.php';
         <!-- Button to navigate to other options for items -->
         <div class="w3-container" style="margin-top:80px" id="buttons">
 
-            <button class="button button1" onclick="window.location.href = 'Admin_Add.php'">Add Order</button>
+            <button class="button button1" onclick="window.location.href = 'Admin_Add.php'">Add Item</button>
 
 
             <button class="button button2" onclick="window.location.href = 'Admin_Edit.php'">Edit Item</button>

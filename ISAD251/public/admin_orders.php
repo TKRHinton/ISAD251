@@ -34,7 +34,6 @@ include_once '../src/model/AllOrders.php';
         <h1 class="w3-jumbo"><b>Admin Orders</b></h1>
         <h1 class="w3-xxxlarge w3-text-red"><b>Customer Orders</b></h1>
         <hr style="width:50px;border:5px solid red" class="w3-round">
-        <p>All the customers current orders</p>
 
     </div>
 
