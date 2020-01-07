@@ -1,5 +1,5 @@
 <?php
-include_once 'nav_bar.php';
+//include_once 'nav_bar.php';
 include_once '../src/model/DbContext.php';
 include_once '../src/model/items.php';
 
@@ -72,12 +72,12 @@ if(isset($_POST['Admin_Add']))
         <button name = "Admin_Add" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>
     </form>
     <?php
-    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
-   // if ($success > 0) {
+    if ($success > 0) {
         echo $resultString;
-   //     alert($request);
-   // }
+        //alert($request);
+    }
     ?>
 
 

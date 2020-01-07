@@ -37,8 +37,7 @@ class DbContext
 
     public function Customers_Order($request)
     {
-        $sql = "SELECT * FROM `all_orders`,
-                Where `Order_ID` ='" . $request . "'";
+        $sql = "SELECT * FROM `all_orders` WHERE `Order_ID` = :request,";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);

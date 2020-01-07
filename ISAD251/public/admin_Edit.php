@@ -73,7 +73,7 @@ if(isset($_POST['Admin_Edit']))
                     </label> -->
                     <div class="form-group col-md-6">
                         <label for="Item_ID">Item ID</label>
-                        <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name">
+                        <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name" maxlength = "10">
                     </div>
 
                     <div class="form-group col-md-6">
@@ -94,12 +94,12 @@ if(isset($_POST['Admin_Edit']))
                 <button name = "Admin_Edit" type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"> Add Item</button>
             </form>
             <?php
-            $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+            $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made Sucessfully</div></div></div></div>";
-           //if ($success > 0) {
+           if ($success > 0) {
                 echo $resultString;
-          //      alert($request);
-          //  }
+                //alert($request);
+            }
             ?>
 
 

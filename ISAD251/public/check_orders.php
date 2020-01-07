@@ -95,7 +95,8 @@ if(isset($_POST['Order_ID']))
             $Order_Row = "";
 
             $db = new DbContext();
-            $Orders = $db->Customers_Order($user);
+           // $Orders = $db->Customers_Order($user);
+                $Orders = $db->View_All_Orders();
 
             if($Orders)
             {

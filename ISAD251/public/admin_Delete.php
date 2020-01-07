@@ -51,7 +51,7 @@ if(isset($_POST['Admin_Delete']))
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="w3-section">
                 <label for="Item_ID">Item ID</label>
-                <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name">
+                <input name = "Item_ID" type="text" class="form-control" id="Item_ID" placeholder="Item Name" maxlength = "10">
                 <!--  <label for="inputState">Item</label>
                 <select id="Item_ID" class="form-control" name = "Item_ID">
                     <option selected>Choose...</option>
@@ -79,13 +79,13 @@ if(isset($_POST['Admin_Delete']))
 
     </form>
     <?php
-    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
+    $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><div class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Item has been deleted</div></div></div></div>";
-   // if ($success > 0) {
+    if ($success > 0) {
         echo $resultString;
-   //     alert($request);
-   // }
-    //?>
+       //alert($request);
+    };
+    ?>
 
 
 

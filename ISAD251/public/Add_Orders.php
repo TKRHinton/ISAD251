@@ -93,11 +93,11 @@ if(isset($_POST['Customers_Add']))
     <?php
     $resultString = "<div class=\"row\"><div class=\"col-sm-12\"><dive class=\"card border-success mb-3\">
                     <div class=\"card-header bg-success text-white\"> Your Order has been made </div></div></div></div>";
-   // if ($success > 0) {
+    if ($success > 0) {
         echo $resultString;
-   //     alert($request);
-   // }
-   // ?>
+      //  alert($request);
+    }
+    ?>
 
 
 
